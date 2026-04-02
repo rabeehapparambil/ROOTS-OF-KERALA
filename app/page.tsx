@@ -12,7 +12,10 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main id="main-content" className="relative flex min-h-screen flex-col overflow-hidden">
+      <main
+        id="main-content"
+        className="relative flex min-h-screen flex-col overflow-hidden pb-24 sm:pb-0"
+      >
         <Hero />
         <Story />
         <Experience />

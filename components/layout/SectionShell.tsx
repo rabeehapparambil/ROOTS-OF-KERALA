@@ -17,11 +17,11 @@ export default function SectionShell({
   return (
     <section
       id={id}
-      className={cn("relative scroll-mt-24 py-20 sm:py-24 lg:py-28", className)}
+      className={cn("relative scroll-mt-24 py-16 sm:py-24 lg:py-28", className)}
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[1240px] px-5 sm:px-6 lg:px-8",
+          "mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8",
           contentClassName,
         )}
       >

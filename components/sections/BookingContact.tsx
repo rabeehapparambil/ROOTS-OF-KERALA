@@ -134,16 +134,16 @@ export default function BookingContact() {
 
   return (
     <SectionShell id="booking" className="pb-24">
-      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="rounded-[2.2rem] border border-[color:var(--line)] bg-coconut p-8 text-[rgba(255,248,240,0.95)] shadow-[0_30px_80px_rgba(46,31,21,0.16)] sm:p-10">
+      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+        <div className="min-w-0 rounded-[1.8rem] border border-[color:var(--line)] bg-coconut p-6 text-[rgba(255,248,240,0.95)] shadow-[0_30px_80px_rgba(46,31,21,0.16)] sm:rounded-[2.2rem] sm:p-10">
           <SectionEyebrow className="border-white/15 bg-white/10 text-[rgba(244,227,198,0.9)] shadow-none">
             {siteContent.booking.eyebrow}
           </SectionEyebrow>
 
-          <h2 className="mt-6 text-balance font-serif text-4xl leading-tight sm:text-5xl">
+          <h2 className="mt-5 text-balance font-serif text-3xl leading-tight sm:mt-6 sm:text-5xl">
             {siteContent.booking.title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-[rgba(255,242,232,0.78)]">
+          <p className="mt-5 text-base leading-7 text-[rgba(255,242,232,0.78)] sm:text-lg sm:leading-8">
             {siteContent.booking.description}
           </p>
 
@@ -155,20 +155,20 @@ export default function BookingContact() {
                 target={link.kind === "email" ? undefined : "_blank"}
                 rel={link.kind === "email" ? undefined : "noreferrer"}
                 className={cn(
-                  "group block rounded-[1.7rem] border px-5 py-5 shadow-[0_24px_60px_rgba(22,34,26,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_70px_rgba(22,34,26,0.22)]",
+                  "group block rounded-[1.45rem] border px-4 py-4 shadow-[0_24px_60px_rgba(22,34,26,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_70px_rgba(22,34,26,0.22)] sm:rounded-[1.7rem] sm:px-5 sm:py-5",
                   channelStyles[link.kind],
                 )}
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-palm">
                       {link.label}
                     </p>
-                    <p className="mt-3 text-lg font-semibold leading-7 text-coconut">
+                    <p className="mt-2 text-base font-semibold leading-6 text-coconut sm:mt-3 sm:text-lg sm:leading-7">
                       {link.cta}
                     </p>
                   </div>
-                  <span className="rounded-full border border-[rgba(35,55,43,0.1)] bg-white/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-coconut">
+                  <span className="inline-flex w-fit rounded-full border border-[rgba(35,55,43,0.1)] bg-white/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-coconut">
                     {channelTaglines[link.kind]}
                   </span>
                 </div>
@@ -179,7 +179,7 @@ export default function BookingContact() {
             ))}
           </div>
 
-          <div className="mt-6 rounded-[1.6rem] border border-white/12 bg-white/8 p-5 text-sm leading-7 text-[rgba(255,242,232,0.78)]">
+          <div className="mt-6 rounded-[1.35rem] border border-white/12 bg-white/8 p-4 text-sm leading-7 text-[rgba(255,242,232,0.78)] sm:rounded-[1.6rem] sm:p-5">
             <p className="font-medium text-[rgba(255,248,240,0.96)]">
               Direct contact works best here.
             </p>
@@ -195,9 +195,9 @@ export default function BookingContact() {
           </p>
         </div>
 
-        <div className="rounded-[2.2rem] border border-[color:var(--line)] bg-[rgba(255,251,245,0.78)] p-6 shadow-[0_24px_70px_var(--shadow)] sm:p-8">
+        <div className="min-w-0 rounded-[1.8rem] border border-[color:var(--line)] bg-[rgba(255,251,245,0.78)] p-5 shadow-[0_24px_70px_var(--shadow)] sm:rounded-[2.2rem] sm:p-8">
           <div className="max-w-2xl">
-            <h3 className="font-serif text-3xl text-coconut">
+            <h3 className="font-serif text-[1.9rem] text-coconut sm:text-3xl">
               {siteContent.booking.formTitle}
             </h3>
             <p className="mt-3 text-base leading-7 text-text-soft">
@@ -254,7 +254,7 @@ export default function BookingContact() {
             />
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button type="submit" variant="primary">
+              <Button type="submit" variant="primary" className="w-full sm:w-auto">
                 {siteContent.booking.submitLabel}
               </Button>
               <p className="text-sm leading-6 text-text-soft">
@@ -320,7 +320,7 @@ export default function BookingContact() {
                     </Button>
                   ) : null}
                 </div>
-                <pre className="mt-5 overflow-x-auto rounded-[1.25rem] border border-[rgba(82,99,79,0.14)] bg-white/60 p-4 font-sans text-sm leading-6 whitespace-pre-wrap">
+                <pre className="mt-5 overflow-x-auto rounded-[1.1rem] border border-[rgba(82,99,79,0.14)] bg-white/60 p-3 font-sans text-xs leading-6 whitespace-pre-wrap sm:rounded-[1.25rem] sm:p-4 sm:text-sm">
                   {preparedLinks.preview}
                 </pre>
               </div>

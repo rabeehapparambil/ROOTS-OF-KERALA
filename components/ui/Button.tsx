@@ -36,7 +36,7 @@ function getVariantClass(variant: SharedProps["variant"]) {
 
 function getBaseClass(fullWidth?: boolean) {
   return cn(
-    "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium tracking-[0.02em]",
+    "inline-flex items-center justify-center rounded-full px-4 py-3 text-sm font-medium tracking-[0.02em] sm:px-5",
     "focus-visible:outline-none",
     fullWidth && "w-full",
   );
@@ -50,7 +50,7 @@ export default function Button(props: AnchorButtonProps | NativeButtonProps) {
     const { children, href, ...anchorProps } = props;
 
     return (
-      <a href={href} className={baseClass} {...anchorProps}>
+      <a href={href} {...anchorProps} className={baseClass}>
         {children}
       </a>
     );
@@ -59,7 +59,7 @@ export default function Button(props: AnchorButtonProps | NativeButtonProps) {
   const { children, type = "button", ...buttonProps } = props as NativeButtonProps;
 
   return (
-    <button type={type} className={baseClass} {...buttonProps}>
+    <button type={type} {...buttonProps} className={baseClass}>
       {children}
     </button>
   );

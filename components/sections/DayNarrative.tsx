@@ -76,23 +76,23 @@ export default function DayNarrative() {
 
       <Reveal className="relative max-w-2xl">
         <SectionEyebrow>{siteContent.dayNarrative.eyebrow}</SectionEyebrow>
-        <h2 className="mt-6 text-balance font-serif text-4xl leading-tight text-coconut sm:text-5xl">
+        <h2 className="mt-5 text-balance font-serif text-3xl leading-tight text-coconut sm:mt-6 sm:text-5xl">
           {siteContent.dayNarrative.title}
         </h2>
-        <p className="mt-5 text-lg leading-8 text-text-soft">
+        <p className="mt-5 text-base leading-7 text-text-soft sm:text-lg sm:leading-8">
           {siteContent.dayNarrative.description}
         </p>
       </Reveal>
 
-      <div className="relative mt-12 grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
-        <div className="lg:sticky lg:top-28">
+      <div className="relative mt-10 grid gap-6 lg:mt-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-start lg:gap-8">
+        <div className="mx-auto w-full min-w-0 max-w-[34rem] lg:sticky lg:top-28 lg:max-w-none">
           <div
             className={cn(
-              "relative overflow-hidden rounded-[2.25rem] border border-[color:var(--line)] bg-gradient-to-br p-4 shadow-[0_30px_80px_var(--shadow)] transition-colors duration-700 sm:p-5",
+              "relative overflow-hidden rounded-[1.8rem] border border-[color:var(--line)] bg-gradient-to-br p-3 shadow-[0_30px_80px_var(--shadow)] transition-colors duration-700 sm:rounded-[2.25rem] sm:p-5",
               toneClasses[dayMoments[activeIndex].tone],
             )}
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/60">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-white/60 sm:rounded-[1.75rem]">
               {dayMoments.map((moment, index) => (
                 <div
                   key={moment.id}
@@ -113,21 +113,21 @@ export default function DayNarrative() {
               ))}
             </div>
 
-            <div className="pointer-events-none absolute inset-x-8 bottom-8 rounded-[1.5rem] border border-white/50 bg-[rgba(255,251,245,0.72)] p-5 shadow-[0_18px_50px_rgba(38,25,16,0.1)] backdrop-blur-sm">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-palm">
+            <div className="pointer-events-none absolute inset-x-4 bottom-4 rounded-[1.2rem] border border-white/50 bg-[rgba(255,251,245,0.78)] p-4 shadow-[0_18px_50px_rgba(38,25,16,0.1)] backdrop-blur-sm sm:inset-x-8 sm:bottom-8 sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-palm sm:text-[11px] sm:tracking-[0.24em]">
                 {dayMoments[activeIndex].label}
               </p>
-              <h3 className="mt-2 font-serif text-2xl text-coconut">
+              <h3 className="mt-2 font-serif text-xl text-coconut sm:text-2xl">
                 {dayMoments[activeIndex].title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-text-soft">
+              <p className="mt-2 text-[13px] leading-6 text-text-soft sm:mt-3 sm:text-sm sm:leading-7">
                 {dayMoments[activeIndex].note}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           {dayMoments.map((moment, index) => (
             <article
               key={moment.id}
@@ -135,7 +135,7 @@ export default function DayNarrative() {
                 stepRefs.current[index] = element;
               }}
               className={cn(
-                "rounded-[2rem] border p-6 shadow-[0_24px_64px_var(--shadow)] transition-all duration-500 sm:p-8",
+                "rounded-[1.6rem] border p-5 shadow-[0_24px_64px_var(--shadow)] transition-all duration-500 sm:rounded-[2rem] sm:p-8",
                 activeIndex === index
                   ? "border-transparent bg-coconut text-[rgba(255,250,245,0.96)] lg:-translate-x-2"
                   : "border-[color:var(--line)] bg-white/58 text-text-soft",
@@ -151,16 +151,16 @@ export default function DayNarrative() {
               </p>
               <h3
                 className={cn(
-                  "mt-3 font-serif text-3xl leading-tight",
+                  "mt-3 font-serif text-[1.85rem] leading-tight sm:text-3xl",
                   activeIndex === index ? "text-[rgba(255,248,241,0.98)]" : "text-coconut",
                 )}
               >
                 {moment.title}
               </h3>
-              <p className="mt-4 text-base leading-8">{moment.description}</p>
+              <p className="mt-4 text-base leading-7 sm:leading-8">{moment.description}</p>
               <p
                 className={cn(
-                  "mt-6 rounded-[1.4rem] border p-4 text-sm leading-7",
+                  "mt-5 rounded-[1.2rem] border p-4 text-sm leading-6 sm:mt-6 sm:rounded-[1.4rem] sm:leading-7",
                   activeIndex === index
                     ? "border-white/12 bg-white/8 text-[rgba(255,246,238,0.88)]"
                     : "border-[color:var(--line)] bg-[rgba(255,251,245,0.84)] text-text-soft",

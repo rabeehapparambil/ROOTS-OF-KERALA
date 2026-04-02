@@ -44,20 +44,23 @@ export default function Navbar() {
         isVisible ? "translate-y-0" : "-translate-y-[140%]",
       )}
     >
-      <div className="mx-auto max-w-[1240px] px-4 pt-4 sm:px-6 lg:px-8">
+      <div
+        className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8"
+        style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
+      >
         <div
           className={cn(
-            "flex items-center justify-between gap-4 rounded-full px-4 py-3 transition-all duration-500 sm:px-6",
+            "flex items-center justify-between gap-3 rounded-[1.65rem] px-3 py-2.5 transition-all duration-500 sm:gap-4 sm:rounded-full sm:px-6 sm:py-3",
             isSolid
               ? "border border-[color:var(--line)] bg-[rgba(245,250,241,0.8)] shadow-[0_20px_60px_var(--shadow)] backdrop-blur-xl"
               : "border border-transparent bg-transparent",
           )}
         >
           <a href="#top" className="min-w-0">
-            <div className="font-serif text-lg text-coconut sm:text-xl">
+            <div className="truncate font-serif text-base text-coconut sm:text-xl">
               {siteContent.brand.name}
             </div>
-            <div className="truncate text-[11px] uppercase tracking-[0.22em] text-text-soft">
+            <div className="truncate text-[10px] uppercase tracking-[0.18em] text-text-soft sm:text-[11px] sm:tracking-[0.22em]">
               {siteContent.brand.location}
             </div>
           </a>
@@ -74,10 +77,27 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Button href="#booking" variant={isSolid ? "primary" : "secondary"}>
+          <Button
+            href="#booking"
+            variant={isSolid ? "primary" : "secondary"}
+            className="hidden shrink-0 px-3.5 py-2 text-[13px] sm:inline-flex sm:px-5 sm:py-3 sm:text-sm"
+          >
             Book Your Stay
           </Button>
         </div>
+      </div>
+
+      <div
+        className="pointer-events-none fixed inset-x-4 z-50 sm:hidden"
+        style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
+      >
+        <Button
+          href="#booking"
+          variant="primary"
+          className="pointer-events-auto w-full justify-center py-3.5 text-sm shadow-[0_22px_48px_rgba(35,55,43,0.28)]"
+        >
+          Book Your Stay
+        </Button>
       </div>
     </header>
   );
