@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
 import { siteContent } from "@/content/site-content";
 import {
@@ -20,6 +20,22 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const visualRef = useRef<HTMLDivElement | null>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [showPrism, setShowPrism] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const updatePrismVisibility = () => {
+      setShowPrism(mediaQuery.matches);
+    };
+
+    updatePrismVisibility();
+    mediaQuery.addEventListener("change", updatePrismVisibility);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updatePrismVisibility);
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -71,8 +87,8 @@ export default function Hero() {
         <div className="absolute bottom-[-10rem] left-[-10rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(62,88,69,0.18),transparent_64%)] blur-3xl" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-[1240px] items-start gap-8 px-4 pb-10 sm:gap-10 sm:px-6 sm:pb-14 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[1fr_0.95fr] lg:items-center lg:gap-12 lg:px-8">
-        <div className="relative z-10 min-w-0 max-w-[42rem]">
+      <div className="mx-auto grid w-full max-w-[1440px] items-start gap-8 px-4 pb-10 sm:gap-10 sm:px-6 sm:pb-14 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14 xl:px-10 2xl:px-12">
+        <div className="relative z-10 min-w-0 max-w-[48rem]">
           <div
             data-hero="eyebrow"
             className="inline-flex rounded-full border border-[color:var(--line)] bg-white/55 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-palm shadow-[0_12px_30px_var(--shadow)] sm:text-[11px] sm:tracking-[0.24em]"
@@ -82,14 +98,14 @@ export default function Hero() {
 
           <h1
             data-hero="title"
-            className="mt-5 max-w-[10ch] text-balance font-serif text-[clamp(2.25rem,10.8vw,4.2rem)] leading-[0.98] text-coconut sm:mt-6 sm:max-w-3xl sm:text-6xl lg:text-7xl"
+            className="mt-5 max-w-[10ch] text-balance font-serif text-[clamp(2.25rem,10.8vw,4.2rem)] leading-[0.98] text-coconut sm:mt-6 sm:max-w-[13ch] sm:text-6xl lg:max-w-[12ch] lg:text-7xl"
           >
             {siteContent.hero.title}
           </h1>
 
           <p
             data-hero="copy"
-            className="mt-5 max-w-[34rem] text-pretty text-base leading-7 text-text-soft sm:mt-6 sm:max-w-2xl sm:text-xl sm:leading-8"
+            className="mt-5 max-w-[36rem] text-pretty text-base leading-7 text-text-soft sm:mt-6 sm:max-w-[40rem] sm:text-xl sm:leading-8"
           >
             {siteContent.hero.description}
           </p>
@@ -131,10 +147,10 @@ export default function Hero() {
 
         <div
           ref={visualRef}
-          className="relative z-10 mx-auto w-full min-w-0 max-w-[32rem] sm:max-w-[36rem]"
+          className="relative z-10 mx-auto w-full min-w-0 max-w-[34rem] sm:max-w-[40rem] xl:max-w-[46rem]"
         >
           <div
-            className="relative aspect-[4/4.8] overflow-hidden rounded-[1.7rem] border border-[color:var(--line)] bg-[linear-gradient(180deg,rgba(247,250,242,0.92),rgba(219,231,216,0.92))] shadow-[0_30px_90px_var(--shadow)] sm:aspect-[5/6] sm:rounded-[2rem]"
+            className="relative aspect-[4/4.8] overflow-hidden rounded-[1.7rem] border border-[color:var(--line)] bg-[linear-gradient(180deg,rgba(247,250,242,0.92),rgba(219,231,216,0.92))] shadow-[0_30px_90px_var(--shadow)] sm:aspect-[5/6] sm:rounded-[2rem] xl:aspect-[0.98/1]"
             data-parallax
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_48%)]" />
@@ -170,7 +186,7 @@ export default function Hero() {
               </p>
             </div>
 
-            {!prefersReducedMotion ? (
+            {!prefersReducedMotion && showPrism ? (
               <div className="absolute inset-0 z-20">
                 <HeroPrism className="h-full w-full opacity-80 sm:opacity-95" />
               </div>

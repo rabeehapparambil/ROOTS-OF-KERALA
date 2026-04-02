@@ -100,6 +100,15 @@ export const siteContent: SiteContent = {
     title: "From misty fields to lamplit evenings, the day opens softly.",
     description:
       "The pace changes with the rain, the season, and what you feel like doing. But the feeling stays the same: green, grounded, and quietly memorable.",
+    companionEyebrow: "What stays with you",
+    companionTitle: "Three quiet rituals carry the whole day.",
+    companionDescription:
+      "Guests rarely remember a timetable. They remember the feeling of being gently folded into the rhythm of the house.",
+    companionHighlights: [
+      "Tea before the home fully wakes.",
+      "Lunch stretching into shade and conversation.",
+      "Evenings slowed by lamps, rain, and cooler air.",
+    ],
   },
   gallery: {
     eyebrow: "Moments from Mannarkad",
@@ -107,6 +116,14 @@ export const siteContent: SiteContent = {
       "Fields, food, trees, birdsong, and the textures that make this corner of Kerala feel lived in.",
     description:
       "The memory of the stay is built from small, grounded things: wet earth after rain, a path under old trees, lunch served warm, a peacock in the distance, and late light across the fields.",
+    companionEyebrow: "Collected slowly",
+    companionTitle: "Not postcard moments. Details that stay with you after living here.",
+    highlights: [
+      "Misty paddy edges after rain.",
+      "Banana-leaf lunches and kitchen warmth.",
+      "Old trees, peacocks, and red evening light.",
+      "A home that feels lived in rather than staged.",
+    ],
   },
   family: {
     eyebrow: "Meet the family",

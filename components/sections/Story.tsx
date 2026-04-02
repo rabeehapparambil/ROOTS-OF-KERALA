@@ -7,10 +7,10 @@ import { siteContent } from "@/content/site-content";
 export default function Story() {
   return (
     <SectionShell id="story">
-      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-12">
-        <Reveal className="min-w-0 max-w-2xl">
+      <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-14">
+        <Reveal className="min-w-0 max-w-3xl">
           <SectionEyebrow>{siteContent.story.eyebrow}</SectionEyebrow>
-          <h2 className="mt-5 max-w-xl text-balance font-serif text-3xl leading-tight text-coconut sm:mt-6 sm:text-5xl">
+          <h2 className="mt-5 max-w-[14ch] text-balance font-serif text-3xl leading-tight text-coconut sm:mt-6 sm:max-w-[13ch] sm:text-5xl">
             {siteContent.story.title}
           </h2>
           <p className="mt-5 text-base leading-7 text-text-soft sm:mt-6 sm:text-lg sm:leading-8">

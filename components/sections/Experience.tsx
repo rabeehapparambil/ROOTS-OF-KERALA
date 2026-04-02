@@ -44,17 +44,35 @@ function ExperienceIcon({ type }: { type: (typeof experienceItems)[number]["icon
 export default function Experience() {
   return (
     <SectionShell id="experience">
-      <Reveal className="max-w-2xl">
-        <SectionEyebrow>{siteContent.experience.eyebrow}</SectionEyebrow>
-        <h2 className="mt-6 text-balance font-serif text-4xl leading-tight text-coconut sm:text-5xl">
-          {siteContent.experience.title}
-        </h2>
-        <p className="mt-5 text-lg leading-8 text-text-soft">
-          {siteContent.experience.description}
-        </p>
-      </Reveal>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:items-end xl:grid-cols-[minmax(0,1.16fr)_minmax(24rem,0.84fr)] xl:gap-16">
+        <Reveal className="max-w-3xl">
+          <SectionEyebrow>{siteContent.experience.eyebrow}</SectionEyebrow>
+          <h2 className="mt-6 max-w-[15ch] text-balance font-serif text-4xl leading-[1.02] text-coconut sm:max-w-[16ch] sm:text-5xl xl:max-w-[17ch]">
+            {siteContent.experience.title}
+          </h2>
+        </Reveal>
 
-      <Reveal className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4" stagger>
+        <Reveal className="min-w-0 lg:pb-2">
+          <div className="rounded-[2rem] border border-[color:var(--line)] bg-[rgba(255,251,245,0.72)] p-6 shadow-[0_18px_54px_var(--shadow)] sm:p-7">
+            <p className="max-w-2xl text-lg leading-8 text-text-soft">
+              {siteContent.experience.description}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3 border-t border-[color:var(--line)] pt-5">
+              {experienceItems.map((item) => (
+                <span
+                  key={item.id}
+                  className="inline-flex rounded-full bg-[rgba(80,106,84,0.08)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-palm"
+                >
+                  {item.eyebrow}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      <Reveal className="mt-10 grid gap-5 md:grid-cols-2 xl:mt-12 xl:grid-cols-4 2xl:gap-6" stagger>
         {experienceItems.map((item) => (
           <article
             key={item.id}

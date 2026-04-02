@@ -104,11 +104,18 @@ export interface SiteContent {
     eyebrow: string;
     title: string;
     description: string;
+    companionEyebrow: string;
+    companionTitle: string;
+    companionDescription: string;
+    companionHighlights: string[];
   };
   gallery: {
     eyebrow: string;
     title: string;
     description: string;
+    companionEyebrow: string;
+    companionTitle: string;
+    highlights: string[];
   };
   family: {
     eyebrow: string;

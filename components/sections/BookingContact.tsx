@@ -134,7 +134,7 @@ export default function BookingContact() {
 
   return (
     <SectionShell id="booking" className="pb-24">
-      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+      <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 xl:gap-14">
         <div className="min-w-0 rounded-[1.8rem] border border-[color:var(--line)] bg-coconut p-6 text-[rgba(255,248,240,0.95)] shadow-[0_30px_80px_rgba(46,31,21,0.16)] sm:rounded-[2.2rem] sm:p-10">
           <SectionEyebrow className="border-white/15 bg-white/10 text-[rgba(244,227,198,0.9)] shadow-none">
             {siteContent.booking.eyebrow}
@@ -196,7 +196,7 @@ export default function BookingContact() {
         </div>
 
         <div className="min-w-0 rounded-[1.8rem] border border-[color:var(--line)] bg-[rgba(255,251,245,0.78)] p-5 shadow-[0_24px_70px_var(--shadow)] sm:rounded-[2.2rem] sm:p-8">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <h3 className="font-serif text-[1.9rem] text-coconut sm:text-3xl">
               {siteContent.booking.formTitle}
             </h3>

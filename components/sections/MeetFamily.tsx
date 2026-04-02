@@ -7,7 +7,7 @@ import { familyMembers, siteContent } from "@/content/site-content";
 export default function MeetFamily() {
   return (
     <SectionShell id="meet-the-family">
-      <Reveal className="max-w-2xl">
+      <Reveal className="max-w-3xl">
         <SectionEyebrow>{siteContent.family.eyebrow}</SectionEyebrow>
         <h2 className="mt-5 text-balance font-serif text-3xl leading-tight text-coconut sm:mt-6 sm:text-5xl">
           {siteContent.family.title}
@@ -17,7 +17,7 @@ export default function MeetFamily() {
         </p>
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 lg:grid-cols-3">
+      <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 lg:grid-cols-3 xl:gap-6">
         {familyMembers.map((member) => (
           <Reveal
             key={member.name}
