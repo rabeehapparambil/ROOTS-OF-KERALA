@@ -23,7 +23,7 @@ export default function Hero() {
   const [showPrism, setShowPrism] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const mediaQuery = window.matchMedia("(min-width: 1280px)");
 
     const updatePrismVisibility = () => {
       setShowPrism(mediaQuery.matches);
@@ -187,8 +187,8 @@ export default function Hero() {
             </div>
 
             {!prefersReducedMotion && showPrism ? (
-              <div className="absolute inset-0 z-20">
-                <HeroPrism className="h-full w-full opacity-80 sm:opacity-95" />
+              <div className="pointer-events-none absolute bottom-[10%] right-[4%] top-[7%] z-20 w-[58%]">
+                <HeroPrism className="h-full w-full opacity-40 2xl:opacity-50" />
               </div>
             ) : null}
           </div>

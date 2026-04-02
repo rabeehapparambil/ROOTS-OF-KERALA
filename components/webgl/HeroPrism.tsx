@@ -37,37 +37,41 @@ export default function HeroPrism({ className }: HeroPrismProps) {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-    camera.position.set(0, 0, 5.8);
+    camera.position.set(0, 0, 6.8);
 
     const group = new THREE.Group();
     scene.add(group);
 
     const prismGeometry = new THREE.CylinderGeometry(0.58, 0.92, 1.95, 6, 24);
     const prismMaterial = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color("#dce4c5"),
-      roughness: 0.12,
+      color: new THREE.Color("#dde8d0"),
+      roughness: 0.16,
       metalness: 0.02,
       transparent: true,
-      opacity: 0.92,
-      transmission: 0.82,
-      thickness: 1.6,
+      opacity: 0.62,
+      transmission: 0.88,
+      thickness: 1.24,
       ior: 1.2,
       clearcoat: 1,
-      clearcoatRoughness: 0.14,
-      attenuationColor: new THREE.Color("#b8c483"),
-      attenuationDistance: 1.4,
+      clearcoatRoughness: 0.18,
+      attenuationColor: new THREE.Color("#c7d39a"),
+      attenuationDistance: 2,
     });
     const prism = new THREE.Mesh(prismGeometry, prismMaterial);
     prism.rotation.z = Math.PI / 6;
+    prism.position.set(0.34, 0.04, 0);
+    prism.scale.setScalar(0.82);
     group.add(prism);
 
     const coreGeometry = new THREE.OctahedronGeometry(0.7, 0);
     const coreMaterial = new THREE.MeshBasicMaterial({
       color: new THREE.Color("#d5c274"),
       transparent: true,
-      opacity: 0.16,
+      opacity: 0.08,
     });
     const core = new THREE.Mesh(coreGeometry, coreMaterial);
+    core.position.copy(prism.position);
+    core.scale.setScalar(0.72);
     group.add(core);
 
     const edgeGeometry = new THREE.EdgesGeometry(
@@ -76,9 +80,11 @@ export default function HeroPrism({ className }: HeroPrismProps) {
     const edgeMaterial = new THREE.LineBasicMaterial({
       color: new THREE.Color("#f3f7ea"),
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.28,
     });
     const edges = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+    edges.position.copy(prism.position);
+    edges.scale.setScalar(0.84);
     group.add(edges);
 
     const ambientLight = new THREE.AmbientLight("#f4f7e8", 0.95);
@@ -122,9 +128,9 @@ export default function HeroPrism({ className }: HeroPrismProps) {
 
       easedPointer.lerp(pointer, 0.06);
 
-      group.rotation.y = seconds * 0.24 + easedPointer.x * 0.9;
-      group.rotation.x = Math.sin(seconds * 0.9) * 0.08 + easedPointer.y * 0.55;
-      group.position.y = Math.sin(seconds * 1.1) * 0.12;
+      group.rotation.y = seconds * 0.22 + easedPointer.x * 0.48;
+      group.rotation.x = Math.sin(seconds * 0.9) * 0.06 + easedPointer.y * 0.28;
+      group.position.y = Math.sin(seconds * 1.1) * 0.08;
       core.rotation.y = seconds * -0.45;
       core.rotation.x = seconds * 0.22;
       edges.rotation.y = group.rotation.y * 1.02;
