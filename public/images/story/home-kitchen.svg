@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" fill="none">
+  <rect width="1200" height="1000" fill="#F8EEDD"/>
+  <rect width="1200" height="1000" fill="url(#wall)"/>
+  <rect y="640" width="1200" height="360" fill="#B77954"/>
+  <rect x="120" y="160" width="320" height="300" rx="24" fill="#FDF8F0"/>
+  <rect x="156" y="192" width="248" height="236" rx="18" fill="#D5E0CB"/>
+  <rect x="524" y="218" width="462" height="220" rx="26" fill="#A87753"/>
+  <rect x="580" y="270" width="120" height="96" rx="14" fill="#F4E7D6"/>
+  <rect x="744" y="270" width="120" height="96" rx="14" fill="#F4E7D6"/>
+  <ellipse cx="534" cy="648" rx="220" ry="84" fill="#FFF8EF"/>
+  <ellipse cx="534" cy="648" rx="176" ry="58" fill="#F6DEC0"/>
+  <circle cx="534" cy="648" r="38" fill="#D8A357"/>
+  <rect x="808" y="570" width="124" height="150" rx="22" fill="#FFF7EE"/>
+  <rect x="836" y="516" width="70" height="70" rx="22" fill="#E1A765"/>
+  <circle cx="944" cy="200" r="96" fill="#F6CD84" opacity=".5"/>
+  <path d="M1024 314c-78 8-148 58-200 148" stroke="#6B835B" stroke-width="18" stroke-linecap="round" opacity=".42"/>
+  <defs>
+    <linearGradient id="wall" x1="600" x2="600" y1="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F1E8"/>
+      <stop offset=".58" stop-color="#EDD8BB"/>
+      <stop offset="1" stop-color="#C88A61"/>
+    </linearGradient>
+  </defs>
+</svg>
