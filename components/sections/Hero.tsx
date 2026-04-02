@@ -1,8 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 import { siteContent } from "@/content/site-content";
 import {
@@ -12,30 +11,10 @@ import {
   usePrefersReducedMotion,
 } from "@/lib/motion";
 
-const HeroPrism = dynamic(() => import("@/components/webgl/HeroPrism"), {
-  ssr: false,
-});
-
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const visualRef = useRef<HTMLDivElement | null>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
-  const [showPrism, setShowPrism] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 1280px)");
-
-    const updatePrismVisibility = () => {
-      setShowPrism(mediaQuery.matches);
-    };
-
-    updatePrismVisibility();
-    mediaQuery.addEventListener("change", updatePrismVisibility);
-
-    return () => {
-      mediaQuery.removeEventListener("change", updatePrismVisibility);
-    };
-  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -185,12 +164,6 @@ export default function Hero() {
                 {siteContent.hero.floatingNote}
               </p>
             </div>
-
-            {!prefersReducedMotion && showPrism ? (
-              <div className="pointer-events-none absolute bottom-[10%] right-[4%] top-[7%] z-20 w-[58%]">
-                <HeroPrism className="h-full w-full opacity-40 2xl:opacity-50" />
-              </div>
-            ) : null}
           </div>
         </div>
       </div>
